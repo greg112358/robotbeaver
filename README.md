@@ -1,5 +1,5 @@
 # robotbeaver
-It's a metaphor, also a SPA framework. If you already know how to program but are frustrated with the esoteric knowledge required to work with modern front end SPA frameworks, then this is the SPA framework for you. No build step, just vanilla js, html, and css.  By combining alpinejs (reactive html components), alpinejs-component (reusable alpinejs components), and the router in this here repo (to put the SPA in SPA frontend), you have everything you could ever need to build a fast, reliable, maintainable, application without ever having to care about what the virtual dom is. 
+It's a metaphor, also a SPA framework. If you already know how to program but are frustrated with the esoteric knowledge required to work with modern front end SPA frameworks, then this is the SPA framework for you. No build step, just vanilla js, html, and css.  By combining alpinejs (reactive html components), alpinejs-component (reusable alpinejs components), and the router in this here repo (to put the SPA in SPA frontend), you have everything you could ever need to build a fast, reliable, maintainable, application without ever having to care about what the virtual dom or jsx is. 
 
 
 ## Getting Started
@@ -21,6 +21,10 @@ It's a metaphor, also a SPA framework. If you already know how to program but ar
             "/test/:id": "static/pages/specific-test.html",
             404 : "static/pages/404.html"//link to your 404 page
         };
+
+* Declare a main page div inside your index.html
+
+        <div id="main-page"></div> 
 
 DONE! 
 
