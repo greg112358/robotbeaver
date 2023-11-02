@@ -1,0 +1,45 @@
+<script>
+    var todo = {
+        id:0,
+        todoList: [],
+        todoText:"To do description",
+        addToDo: function(text){
+            this.todoList.push({id:++this.id,text:text,done:false})
+            window.localStorage.setItem("todos",JSON.stringify(this.todoList))
+        },
+        deleteToDos: function(){
+            this.todoList = []
+            window.localStorage.setItem("todos",JSON.stringify(this.todoList))
+        },
+        deleteToDo: function(item){
+            let index = this.todoList.indexOf(item)
+            this.todoList.splice(index,1)
+            window.localStorage.setItem("todos",JSON.stringify(this.todoList))
+        }
+    }
+    
+    let storedTodos = JSON.parse(window.localStorage.getItem('todos'))
+    if(!storedTodos){
+        storedTodos = [];
+    }
+    this.id = storedTodos.length
+    todo.todoList = storedTodos;
+    
+</script>
+<div x-data = "todo">
+    <input type = "text" class="textarea" x-model="todoText"></input>
+    <div>
+        <button class="button" @click="addToDo(todoText)">Add Item</button>
+        <button class="button" @click="deleteToDos()">Clear To Do</button>
+    </div>
+    <template x-for="i in todoList">
+        <x-component url="/static/todoItem.html" x-data="{todoItem:i}"></x-component>
+    </template>
+</div>
+
+<div>
+    <button class="button">classes work again?</button>
+</div>
+
+
+
